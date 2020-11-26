@@ -5,6 +5,8 @@
   height: 46px;
   justify-content: space-between;
   align-items: center;
+  position: static;;
+  z-index: 12;
 
   &-title {
     color: #fff;
@@ -53,7 +55,7 @@ ul.show {
   top: 65px;
 }
 
-@media screen and (max-width: 952px) {
+@include mqx(952px) {
   .nav-title {
     font-size: 30px;
     padding-left: 35px;
@@ -63,7 +65,7 @@ ul.show {
   }
 }
 
-@media screen and (max-width: 858px) {
+@include mqx(858px) {
   .nav {
     height: 65px;
   }

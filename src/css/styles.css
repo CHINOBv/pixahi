@@ -1,3 +1,50 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 *,
 *:after,
 *:before {
@@ -7,7 +54,7 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #5039e7;
+  background: #5039e7;
   color: #fff;
   font-size: 14px;
   font-family: "Roboto", sans-serif;
@@ -22,7 +69,9 @@ body {
   width: 100%;
   height: 46px;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  position: static;
+  z-index: 12; }
   .nav-title {
     color: #fff;
     font-size: 35px;
@@ -93,12 +142,25 @@ ul.show {
     padding-left: 35px; } }
 
 .container {
-  display: flex;
-  justify-content: center;
-  width: 85%;
-  margin: auto; }
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; }
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px; } }
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px; } }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px; } }
 
 .search {
+  margin-top: 35vh;
   position: absolute;
   padding: 5px; }
   .search input {
@@ -129,3 +191,30 @@ ul.show {
     font-size: 20px;
     border-radius: 50%;
     cursor: pointer; }
+  .search-contract {
+    margin-top: 10vh; }
+
+@media screen and (max-width: 858px) {
+  .search-contract {
+    margin-top: 15vh; } }
+
+.text-center {
+  text-align: center; }
+
+.justify-content-center {
+  display: flex;
+  justify-content: center; }
+
+.select {
+  color: #fff;
+  background: #000; }
+
+.css-1wa3eu0-placeholder {
+  color: #fff !important; }
+
+.react-select__control {
+  color: #fff !important; }
+
+.css-1i091l0-control {
+  border-radius: 33px !important;
+  border: 1px solid #7a58ff !important; }

@@ -1,4 +1,6 @@
 @import './colors';
+@import './_resets';
+@import './mixins';
 
 *,
 *:after,
@@ -10,7 +12,7 @@
 }
 
 body {
-  background-color: $primary;
+  background: $primary;
   color: #fff;
   font-size: 14px;
   font-family: "Roboto", sans-serif;
@@ -19,7 +21,8 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-
 @import "./_navbar";
 @import "./_components";
 @import './_buttons';
+@import './_utils';
+@import './_select';

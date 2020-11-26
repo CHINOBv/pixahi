@@ -1,11 +1,26 @@
 .container {
-  //background-color: #000;
-  display: flex;
-  justify-content: center;
-  width: 100% - 15;
-  margin: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }
 .search {
+  margin-top: 100vh - 65;
   position: absolute;
   padding: 5px;
   & input {
@@ -23,7 +38,7 @@
   &:hover input {
     width: 240px;
   }
-  & input:focus{
+  & input:focus {
     width: 240px;
   }
   &-button {
@@ -40,5 +55,14 @@
     border-radius: 50%;
     cursor: pointer;
   }
+  &-contract {
+    margin-top: 100vh - 90;
+  }
 }
 
+
+@media screen and (max-width: 858px) {
+  .search-contract{
+    margin-top: 100vh - 85;
+  }
+}
