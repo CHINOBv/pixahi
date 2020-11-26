@@ -193,10 +193,12 @@ ul.show {
     cursor: pointer; }
   .search-contract {
     margin-top: 10vh; }
-
-@media screen and (max-width: 858px) {
-  .search-contract {
-    margin-top: 15vh; } }
+  @media screen and (max-width: 858px) {
+    .search {
+      margin-top: 20vh;
+      z-index: 9; }
+      .search .search-contract {
+        margin-top: 15vh; } }
 
 .text-center {
   text-align: center; }
@@ -206,15 +208,57 @@ ul.show {
   justify-content: center; }
 
 .select {
-  color: #fff;
-  background: #000; }
-
-.css-1wa3eu0-placeholder {
-  color: #fff !important; }
-
-.react-select__control {
-  color: #fff !important; }
-
-.css-1i091l0-control {
-  border-radius: 33px !important;
-  border: 1px solid #7a58ff !important; }
+  width: 350px;
+  margin-top: 45vh; }
+  .select__control {
+    background-color: #5039e7 !important;
+    border: 1px solid #7a58ff !important;
+    border-radius: 50px !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 18px !important; }
+  .select__placeholder {
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 18px !important; }
+  .select__menu {
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 18px !important; }
+  .select__menu-list {
+    background-color: #7a58ff !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
+    max-height: 35vh !important; }
+  .select__option {
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 18px !important; }
+  .select__single-value {
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 18px !important; }
+  .select__option--is-focused {
+    background: #a178ff !important;
+    font-size: 18px;
+    font-weight: bold !important;
+    font-size: 18px !important; }
+  .select__input {
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 18px !important; }
+  .select__option--is-selected {
+    background: #a178ff !important; }
+  @media screen and (max-width: 858px) {
+    .select {
+      margin-top: 35vh;
+      position: relative; }
+      .select__control {
+        height: 50px !important; }
+      .select__menu-list {
+        max-height: 50vh !important; }
+      .select__menu {
+        margin-bottom: 15px !important; }
+      .select__option {
+        font-size: 18px !important;
+        line-height: 40px; } }

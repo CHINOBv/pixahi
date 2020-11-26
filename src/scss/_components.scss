@@ -58,11 +58,14 @@
   &-contract {
     margin-top: 100vh - 90;
   }
-}
-
-
-@media screen and (max-width: 858px) {
-  .search-contract{
-    margin-top: 100vh - 85;
+  @include mqx(858px){
+    .search-contract{
+      margin-top: 100vh - 85;
+    }
+    margin-top: 100vh - 80;
+    z-index: 9;
+  
   }
 }
+
+

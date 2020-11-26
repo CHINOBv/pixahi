@@ -25,17 +25,6 @@ function Search() {
     { label: "Musica", value: "music" },
   ];
 
-  const styles = {
-    control: (provided, state) => ({
-      ...provided,
-      backgroundColor: "#5039e7"
-    }),
-    input: (provided, state) => ({
-      ...provided,
-      color: "#fff"
-    }),
-
-  };
 
   return (
     <div>
@@ -47,7 +36,17 @@ function Search() {
           </div>
         </div>
       </div>
-      <Select options={optionsSelect} classNamePrefix="select" styles={styles} />
+      <div className="justify-content-center">
+      <Select
+        options={optionsSelect}
+        classNamePrefix="select"
+        className="select"
+        onFocus='false'
+        autoFocus={false}
+        isSearchable={false}
+        placeholder="Selecciona una Categoria"
+      />
+      </div>
     </div>
   );
 }
