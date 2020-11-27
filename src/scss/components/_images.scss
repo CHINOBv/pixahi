@@ -18,42 +18,48 @@
       columns: 1;
     }
   }
-  .image-ctn &-box {
+  &-box {
     position: relative;
+    margin: 10px auto;
+    overflow: hidden;
+    border-radius: 19px;
     width: 100%;
-    padding: 10px;
-    break-inside: avoid;
+
     img {
       border-radius: 19px;
       max-width: 100%;
       width: 100%;
+      overflow: hidden;
+      height: 100%;
     }
+    transition: all 0.5s ease-out;
   }
-  &-box {
-    margin: 10px;
-    h2 {
-      margin: 10px 0 0;
-      padding: 0;
-      font-size: 20px;
-    }
-    p {
-      margin: 0;
-      padding: 0 0 10px;
-      font-size: 18px;
-    }
+  &-box:hover > &-filter {
+    visibility: visible;
+    opacity: 100%;
   }
-  &-ct{
-    position: relative;
-    max-width: 100%;
-    max-height: 100%;
-  }
-  .image-ct &-filter {
-    position: absolute; /* Position the background text */
+  &-filter {
+    position: absolute;
+    top: 0; /* Position the background text */
     bottom: 0; /* At the bottom. Use top:0 to append it to the top */
     background: rgb(0, 0, 0); /* Fallback color */
     background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
     color: #f1f1f1; /* Grey text */
     width: 100%; /* Full width */
-    padding: 10px; /* Some padding */
+    padding: 100%;
+    max-height: 100%;
+    transition: all 0.5s ease-out;
+    visibility: hidden;
+    opacity: 0;
   }
+  &-text-results{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 100px;
+  }
+}
+.not-found{
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 100px;
 }

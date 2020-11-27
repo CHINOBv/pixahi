@@ -4,6 +4,7 @@ import Select from "react-select";
 import { getImages } from "../utils/fetchAPI";
 
 const optionsSelect = [
+  { label: 'Ninguna', value: ''},
   { label: "Fondos", value: "backgrounds" },
   { label: "Moda", value: "fashion" },
   { label: "Naturaleza", value: "nature" },
@@ -26,7 +27,7 @@ const optionsSelect = [
   { label: "Musica", value: "music" },
 ];
 
-function Search({ setImages }) {
+function Search({ setImagesInf, setImages }) {
   const [searchText, setSearchText] = useState("");
   const [category, setCategory] = useState("");
   const [contract, setContract] = useState(false);
@@ -35,15 +36,17 @@ function Search({ setImages }) {
     if (!searchText) {
     }
     getImages(searchText, category).then((images) => {
-      setImages(images.data);
+      setImagesInf(images.data);
+      setImages(images.data.hits);
       setContract(true);
       setSearchText("");
       setCategory("");
     });
   };
-
+//console.log(category);
   return (
     <div>
+      
       <div className="container justify-content-center">
         <div className={`search ${contract ? "search-contract" : ""}`}>
           <input
@@ -67,7 +70,6 @@ function Search({ setImages }) {
         }`}
       >
         <Select
-          value={category}
           options={optionsSelect}
           classNamePrefix="select"
           className="select"
