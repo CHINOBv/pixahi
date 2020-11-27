@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Select from "react-select";
 
-import { getImages } from "../utils/fetchAPI";
+import useImages from "../hooks/useImages";
 
 const optionsSelect = [
-  { label: 'Ninguna', value: ''},
+  { label: "Ninguna", value: "" },
   { label: "Fondos", value: "backgrounds" },
   { label: "Moda", value: "fashion" },
   { label: "Naturaleza", value: "nature" },
@@ -28,25 +28,23 @@ const optionsSelect = [
 ];
 
 function Search({ setImagesInf, setImages }) {
-  const [searchText, setSearchText] = useState("");
+  const [keywords, setKeywords] = useState("");
   const [category, setCategory] = useState("");
   const [contract, setContract] = useState(false);
 
+  const { imagesInfo, search } = useImages(keywords, category);
+  console.log(imagesInfo);
   const searchImages = () => {
-    if (!searchText) {
+    if (!keywords) {
     }
-    getImages(searchText, category).then((images) => {
-      setImagesInf(images.data);
-      setImages(images.data.hits);
-      setContract(true);
-      setSearchText("");
-      setCategory("");
-    });
+    search();
+    setContract(true);
+    setCategory("");
+    setKeywords("");
   };
-//console.log(category);
+  //console.log(category);
   return (
     <div>
-      
       <div className="container justify-content-center">
         <div className={`search ${contract ? "search-contract" : ""}`}>
           <input
@@ -54,9 +52,9 @@ function Search({ setImagesInf, setImages }) {
             placeholder="Buscar"
             className="input-text"
             onChange={(e) =>
-              setSearchText(e.target.value.trim() ? e.target.value : "")
+              setKeywords(e.target.value.trim() ? e.target.value : "")
             }
-            value={searchText}
+            value={keywords}
             required
           />
           <div className="search-button" onClick={() => searchImages()}>
@@ -66,7 +64,7 @@ function Search({ setImagesInf, setImages }) {
       </div>
       <div
         className={`select-ctn ${contract ? "select-contract" : ""} ${
-          searchText ? "select-show" : ""
+          keywords ? "select-show" : ""
         }`}
       >
         <Select
