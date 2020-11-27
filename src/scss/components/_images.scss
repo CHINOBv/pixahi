@@ -1,0 +1,59 @@
+.image {
+  &-ctn {
+    width: 1200px;
+    margin: 120px auto;
+    columns: 4;
+    column-gap: 40px;
+    position: relative;
+    @include mqx(1200px) {
+      columns: 3;
+      width: calc(100% - 40px);
+      box-sizing: border-box;
+      padding: 20px 20px 20px 0;
+    }
+    @include mqx(768px) {
+      columns: 2;
+    }
+    @include mqx(480px) {
+      columns: 1;
+    }
+  }
+  .image-ctn &-box {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    break-inside: avoid;
+    img {
+      border-radius: 19px;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  &-box {
+    margin: 10px;
+    h2 {
+      margin: 10px 0 0;
+      padding: 0;
+      font-size: 20px;
+    }
+    p {
+      margin: 0;
+      padding: 0 0 10px;
+      font-size: 18px;
+    }
+  }
+  &-ct{
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .image-ct &-filter {
+    position: absolute; /* Position the background text */
+    bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 100%; /* Full width */
+    padding: 10px; /* Some padding */
+  }
+}

@@ -23,6 +23,7 @@
   margin-top: 100vh - 65;
   position: absolute;
   padding: 5px;
+  transition: all 0.6s ease-in-out;
   & input {
     border: 1px solid silver;
     font-size: 18px;
@@ -56,16 +57,17 @@
     cursor: pointer;
   }
   &-contract {
-    margin-top: 100vh - 90;
+    margin-top: calc(100vh - 40%);
   }
   @include mqx(858px){
     .search-contract{
-      margin-top: 100vh - 85;
+      margin-top: calc(100vh - 300%);
     }
-    margin-top: 100vh - 80;
+    margin-top: 100vh - 70;
     z-index: 9;
   
   }
+  
 }
 
 

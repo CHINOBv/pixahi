@@ -3,8 +3,18 @@
     @content;
   }
 }
+@mixin mqxh($breakpoint) {
+  @media screen and (max-height: $breakpoint) {
+    @content;
+  }
+}
 @mixin mqm($breakpoint) {
   @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+@mixin mqmh($breakpoint) {
+  @media screen and (min-height: $breakpoint) {
     @content;
   }
 }
