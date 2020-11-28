@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import Select from "react-select";
 
 import useImages from "hooks/useImages";
+
+import ImagesContext from "contexts/ImagesContext";
 
 const optionsSelect = [
   { label: "Ninguna", value: "" },
@@ -28,21 +30,24 @@ const optionsSelect = [
 ];
 
 function Search({ setImagesInf, setImages }) {
-  const [keywords, setKeywords] = useState("");
-  const [category, setCategory] = useState("");
+  const {
+    setSearchKeys,
+    searchKeys,
+    setSearchCategory,
+    searchCategory,
+  } = useContext(ImagesContext);
   const [contract, setContract] = useState(false);
 
-  const { imagesInfo, search } = useImages(keywords, category);
-  console.log(imagesInfo);
-  const searchImages = () => {
-    if (!keywords) {
+  useImages();
+  useEffect(() => {
+    if (searchCategory.trim() || searchKeys.trim()) {
+      setContract(true);
+    } else {
+      setContract(false);
     }
-    search();
-    setContract(true);
-    setCategory("");
-    setKeywords("");
-  };
-  //console.log(category);
+  }, [searchKeys, searchCategory]);
+
+  //console.log(searchCategory);
   return (
     <div>
       <div className="container justify-content-center">
@@ -52,19 +57,19 @@ function Search({ setImagesInf, setImages }) {
             placeholder="Buscar"
             className="input-text"
             onChange={(e) =>
-              setKeywords(e.target.value.trim() ? e.target.value : "")
+              setSearchKeys(e.target.value.trim() ? e.target.value : "")
             }
-            value={keywords}
+            value={searchKeys}
             required
           />
-          <div className="search-button" onClick={() => searchImages()}>
+          <div className="search-button">
             <i className="fa fa-search"></i>
           </div>
         </div>
       </div>
       <div
         className={`select-ctn ${contract ? "select-contract" : ""} ${
-          keywords ? "select-show" : ""
+          searchKeys ? "select-show" : ""
         }`}
       >
         <Select
@@ -75,7 +80,7 @@ function Search({ setImagesInf, setImages }) {
           autoFocus={false}
           isSearchable={false}
           placeholder="Selecciona una Categoria"
-          onChange={(e) => setCategory(e.value.trim() ? e.value : "")}
+          onChange={(e) => setSearchCategory(e.value.trim() ? e.value : "")}
         />
       </div>
     </div>

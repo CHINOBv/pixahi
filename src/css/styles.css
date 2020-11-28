@@ -319,9 +319,15 @@ ul.show {
 .image-ctn {
   width: 1200px;
   margin: 120px auto;
-  columns: 4;
-  column-gap: 40px;
-  position: relative; }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0 40px;
+  align-items: center;
+  grid-template-rows: masonry;
+  /* columns: 4;
+    column-gap: 40px; */
+  position: relative;
+  min-height: 100vh; }
   @media screen and (max-width: 1200px) {
     .image-ctn {
       columns: 3;
