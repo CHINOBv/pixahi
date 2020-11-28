@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Select from "react-select";
 
-import useImages from "../hooks/useImages";
+import useImages from "hooks/useImages";
 
 const optionsSelect = [
   { label: "Ninguna", value: "" },

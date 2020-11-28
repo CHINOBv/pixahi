@@ -1,11 +1,16 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 
-import ImagesContext from "../../contexts/ImagesContext";
+import ImagesContext from "contexts/ImagesContext";
+import useNearScreen from 'hooks/useNearScreen';
 
 import Image from "./Image";
 
 const Images = () => {
   const { imagesInfo } = useContext(ImagesContext);
+  
+  const {show, elementRef } = useNearScreen();
+  console.log(show);
+
   return (
     <>
       {imagesInfo.hits?.length > 0 ? (
@@ -16,6 +21,7 @@ const Images = () => {
           <div className="image-ctn">
             <Image />
           </div>
+          <div ref={elementRef}></div>
         </>
       ) : (
         <div className="container">

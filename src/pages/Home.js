@@ -1,5 +1,5 @@
-import Search from "../components/Search";
-import Images from "../components/Images/Images";
+import Search from "components/Search";
+import Images from "components/Images/Images";
 
 const Home = () => {
   //console.log(imagesInf);

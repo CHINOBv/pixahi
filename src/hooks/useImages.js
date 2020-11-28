@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { getImages } from "../utils/fetchAPI";
-import ImagesContext from "../contexts/ImagesContext";
+import { getImages } from "utils/fetchAPI";
+import ImagesContext from "contexts/ImagesContext";
 
 const useImages = (keywords, category) => {
   const { setImages, images, setImagesInfo, imagesInfo } = useContext(
